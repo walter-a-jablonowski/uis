@@ -1,0 +1,756 @@
+/* 
+ * SciFi-UI - A sci-fi themed UI framework
+ * Version 1.0.0
+ */
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Document */
+:root {
+  /* Color Variables */
+  --scifi-primary: #00b8ff;
+  --scifi-secondary: #7b42ff;
+  --scifi-success: #00e676;
+  --scifi-danger: #ff1744;
+  --scifi-warning: #ffab00;
+  --scifi-info: #00e5ff;
+  
+  /* Background Colors */
+  --scifi-bg-dark: #0a1929;
+  --scifi-bg-medium: #132f4c;
+  --scifi-bg-light: #173a5e;
+  
+  /* Text Colors */
+  --scifi-text-primary: #ffffff;
+  --scifi-text-secondary: #b2bac2;
+  --scifi-text-disabled: #637381;
+  
+  /* Border Colors */
+  --scifi-border-color: rgba(0, 184, 255, 0.3);
+  --scifi-border-glow: 0 0 5px rgba(0, 184, 255, 0.5);
+  
+  /* Spacing */
+  --scifi-spacing-xs: 0.25rem;
+  --scifi-spacing-sm: 0.5rem;
+  --scifi-spacing-md: 1rem;
+  --scifi-spacing-lg: 1.5rem;
+  --scifi-spacing-xl: 2rem;
+  
+  /* Font */
+  --scifi-font-family: 'Rajdhani', 'Orbitron', sans-serif;
+  --scifi-font-size-base: 16px;
+  --scifi-line-height: 1.5;
+  
+  /* Border Radius */
+  --scifi-border-radius-sm: 2px;
+  --scifi-border-radius-md: 4px;
+  --scifi-border-radius-lg: 8px;
+  
+  /* Transitions */
+  --scifi-transition-fast: 0.15s ease;
+  --scifi-transition-normal: 0.3s ease;
+  --scifi-transition-slow: 0.5s ease;
+}
+
+html {
+  font-size: var(--scifi-font-size-base);
+  font-family: var(--scifi-font-family);
+  line-height: var(--scifi-line-height);
+}
+
+body {
+  background-color: var(--scifi-bg-dark);
+  color: var(--scifi-text-primary);
+  font-family: var(--scifi-font-family);
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--scifi-spacing-md);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-bottom: var(--scifi-spacing-md);
+}
+
+a {
+  color: var(--scifi-primary);
+  text-decoration: none;
+  transition: color var(--scifi-transition-fast);
+}
+
+a:hover {
+  color: var(--scifi-secondary);
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--scifi-spacing-md);
+  padding-left: var(--scifi-spacing-md);
+}
+
+/* Utility Classes */
+
+/* Display */
+.d-none {
+  display: none !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+/* Flex utilities */
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-baseline {
+  align-items: baseline !important;
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+/* Spacing utilities */
+.m-0 {
+  margin: 0 !important;
+}
+
+.m-1 {
+  margin: var(--scifi-spacing-xs) !important;
+}
+
+.m-2 {
+  margin: var(--scifi-spacing-sm) !important;
+}
+
+.m-3 {
+  margin: var(--scifi-spacing-md) !important;
+}
+
+.m-4 {
+  margin: var(--scifi-spacing-lg) !important;
+}
+
+.m-5 {
+  margin: var(--scifi-spacing-xl) !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mt-1 {
+  margin-top: var(--scifi-spacing-xs) !important;
+}
+
+.mt-2 {
+  margin-top: var(--scifi-spacing-sm) !important;
+}
+
+.mt-3 {
+  margin-top: var(--scifi-spacing-md) !important;
+}
+
+.mt-4 {
+  margin-top: var(--scifi-spacing-lg) !important;
+}
+
+.mt-5 {
+  margin-top: var(--scifi-spacing-xl) !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-1 {
+  margin-bottom: var(--scifi-spacing-xs) !important;
+}
+
+.mb-2 {
+  margin-bottom: var(--scifi-spacing-sm) !important;
+}
+
+.mb-3 {
+  margin-bottom: var(--scifi-spacing-md) !important;
+}
+
+.mb-4 {
+  margin-bottom: var(--scifi-spacing-lg) !important;
+}
+
+.mb-5 {
+  margin-bottom: var(--scifi-spacing-xl) !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.ml-1 {
+  margin-left: var(--scifi-spacing-xs) !important;
+}
+
+.ml-2 {
+  margin-left: var(--scifi-spacing-sm) !important;
+}
+
+.ml-3 {
+  margin-left: var(--scifi-spacing-md) !important;
+}
+
+.ml-4 {
+  margin-left: var(--scifi-spacing-lg) !important;
+}
+
+.ml-5 {
+  margin-left: var(--scifi-spacing-xl) !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mr-1 {
+  margin-right: var(--scifi-spacing-xs) !important;
+}
+
+.mr-2 {
+  margin-right: var(--scifi-spacing-sm) !important;
+}
+
+.mr-3 {
+  margin-right: var(--scifi-spacing-md) !important;
+}
+
+.mr-4 {
+  margin-right: var(--scifi-spacing-lg) !important;
+}
+
+.mr-5 {
+  margin-right: var(--scifi-spacing-xl) !important;
+}
+
+.mx-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mx-1 {
+  margin-left: var(--scifi-spacing-xs) !important;
+  margin-right: var(--scifi-spacing-xs) !important;
+}
+
+.mx-2 {
+  margin-left: var(--scifi-spacing-sm) !important;
+  margin-right: var(--scifi-spacing-sm) !important;
+}
+
+.mx-3 {
+  margin-left: var(--scifi-spacing-md) !important;
+  margin-right: var(--scifi-spacing-md) !important;
+}
+
+.mx-4 {
+  margin-left: var(--scifi-spacing-lg) !important;
+  margin-right: var(--scifi-spacing-lg) !important;
+}
+
+.mx-5 {
+  margin-left: var(--scifi-spacing-xl) !important;
+  margin-right: var(--scifi-spacing-xl) !important;
+}
+
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.my-1 {
+  margin-top: var(--scifi-spacing-xs) !important;
+  margin-bottom: var(--scifi-spacing-xs) !important;
+}
+
+.my-2 {
+  margin-top: var(--scifi-spacing-sm) !important;
+  margin-bottom: var(--scifi-spacing-sm) !important;
+}
+
+.my-3 {
+  margin-top: var(--scifi-spacing-md) !important;
+  margin-bottom: var(--scifi-spacing-md) !important;
+}
+
+.my-4 {
+  margin-top: var(--scifi-spacing-lg) !important;
+  margin-bottom: var(--scifi-spacing-lg) !important;
+}
+
+.my-5 {
+  margin-top: var(--scifi-spacing-xl) !important;
+  margin-bottom: var(--scifi-spacing-xl) !important;
+}
+
+/* Padding utilities follow the same pattern as margin */
+.p-0 {
+  padding: 0 !important;
+}
+
+.p-1 {
+  padding: var(--scifi-spacing-xs) !important;
+}
+
+.p-2 {
+  padding: var(--scifi-spacing-sm) !important;
+}
+
+.p-3 {
+  padding: var(--scifi-spacing-md) !important;
+}
+
+.p-4 {
+  padding: var(--scifi-spacing-lg) !important;
+}
+
+.p-5 {
+  padding: var(--scifi-spacing-xl) !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pt-1 {
+  padding-top: var(--scifi-spacing-xs) !important;
+}
+
+.pt-2 {
+  padding-top: var(--scifi-spacing-sm) !important;
+}
+
+.pt-3 {
+  padding-top: var(--scifi-spacing-md) !important;
+}
+
+.pt-4 {
+  padding-top: var(--scifi-spacing-lg) !important;
+}
+
+.pt-5 {
+  padding-top: var(--scifi-spacing-xl) !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pb-1 {
+  padding-bottom: var(--scifi-spacing-xs) !important;
+}
+
+.pb-2 {
+  padding-bottom: var(--scifi-spacing-sm) !important;
+}
+
+.pb-3 {
+  padding-bottom: var(--scifi-spacing-md) !important;
+}
+
+.pb-4 {
+  padding-bottom: var(--scifi-spacing-lg) !important;
+}
+
+.pb-5 {
+  padding-bottom: var(--scifi-spacing-xl) !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.pl-1 {
+  padding-left: var(--scifi-spacing-xs) !important;
+}
+
+.pl-2 {
+  padding-left: var(--scifi-spacing-sm) !important;
+}
+
+.pl-3 {
+  padding-left: var(--scifi-spacing-md) !important;
+}
+
+.pl-4 {
+  padding-left: var(--scifi-spacing-lg) !important;
+}
+
+.pl-5 {
+  padding-left: var(--scifi-spacing-xl) !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pr-1 {
+  padding-right: var(--scifi-spacing-xs) !important;
+}
+
+.pr-2 {
+  padding-right: var(--scifi-spacing-sm) !important;
+}
+
+.pr-3 {
+  padding-right: var(--scifi-spacing-md) !important;
+}
+
+.pr-4 {
+  padding-right: var(--scifi-spacing-lg) !important;
+}
+
+.pr-5 {
+  padding-right: var(--scifi-spacing-xl) !important;
+}
+
+.px-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.px-1 {
+  padding-left: var(--scifi-spacing-xs) !important;
+  padding-right: var(--scifi-spacing-xs) !important;
+}
+
+.px-2 {
+  padding-left: var(--scifi-spacing-sm) !important;
+  padding-right: var(--scifi-spacing-sm) !important;
+}
+
+.px-3 {
+  padding-left: var(--scifi-spacing-md) !important;
+  padding-right: var(--scifi-spacing-md) !important;
+}
+
+.px-4 {
+  padding-left: var(--scifi-spacing-lg) !important;
+  padding-right: var(--scifi-spacing-lg) !important;
+}
+
+.px-5 {
+  padding-left: var(--scifi-spacing-xl) !important;
+  padding-right: var(--scifi-spacing-xl) !important;
+}
+
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.py-1 {
+  padding-top: var(--scifi-spacing-xs) !important;
+  padding-bottom: var(--scifi-spacing-xs) !important;
+}
+
+.py-2 {
+  padding-top: var(--scifi-spacing-sm) !important;
+  padding-bottom: var(--scifi-spacing-sm) !important;
+}
+
+.py-3 {
+  padding-top: var(--scifi-spacing-md) !important;
+  padding-bottom: var(--scifi-spacing-md) !important;
+}
+
+.py-4 {
+  padding-top: var(--scifi-spacing-lg) !important;
+  padding-bottom: var(--scifi-spacing-lg) !important;
+}
+
+.py-5 {
+  padding-top: var(--scifi-spacing-xl) !important;
+  padding-bottom: var(--scifi-spacing-xl) !important;
+}
+
+/* Border utilities */
+.border {
+  border: 1px solid var(--scifi-border-color) !important;
+}
+
+.border-top {
+  border-top: 1px solid var(--scifi-border-color) !important;
+}
+
+.border-right {
+  border-right: 1px solid var(--scifi-border-color) !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--scifi-border-color) !important;
+}
+
+.border-left {
+  border-left: 1px solid var(--scifi-border-color) !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.border-top-0 {
+  border-top: 0 !important;
+}
+
+.border-right-0 {
+  border-right: 0 !important;
+}
+
+.border-bottom-0 {
+  border-bottom: 0 !important;
+}
+
+.border-left-0 {
+  border-left: 0 !important;
+}
+
+.border-primary {
+  border-color: var(--scifi-primary) !important;
+}
+
+.border-secondary {
+  border-color: var(--scifi-secondary) !important;
+}
+
+.border-success {
+  border-color: var(--scifi-success) !important;
+}
+
+.border-danger {
+  border-color: var(--scifi-danger) !important;
+}
+
+.border-warning {
+  border-color: var(--scifi-warning) !important;
+}
+
+.border-info {
+  border-color: var(--scifi-info) !important;
+}
+
+.border-glow {
+  box-shadow: var(--scifi-border-glow) !important;
+}
+
+/* Border radius */
+.rounded {
+  border-radius: var(--scifi-border-radius-md) !important;
+}
+
+.rounded-sm {
+  border-radius: var(--scifi-border-radius-sm) !important;
+}
+
+.rounded-lg {
+  border-radius: var(--scifi-border-radius-lg) !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
+
+/* Text utilities */
+.text-primary {
+  color: var(--scifi-primary) !important;
+}
+
+.text-secondary {
+  color: var(--scifi-secondary) !important;
+}
+
+.text-success {
+  color: var(--scifi-success) !important;
+}
+
+.text-danger {
+  color: var(--scifi-danger) !important;
+}
+
+.text-warning {
+  color: var(--scifi-warning) !important;
+}
+
+.text-info {
+  color: var(--scifi-info) !important;
+}
+
+.text-light {
+  color: var(--scifi-text-primary) !important;
+}
+
+.text-dark {
+  color: var(--scifi-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--scifi-text-disabled) !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+/* Background utilities */
+.bg-primary {
+  background-color: var(--scifi-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--scifi-secondary) !important;
+}
+
+.bg-success {
+  background-color: var(--scifi-success) !important;
+}
+
+.bg-danger {
+  background-color: var(--scifi-danger) !important;
+}
+
+.bg-warning {
+  background-color: var(--scifi-warning) !important;
+}
+
+.bg-info {
+  background-color: var(--scifi-info) !important;
+}
+
+.bg-dark {
+  background-color: var(--scifi-bg-dark) !important;
+}
+
+.bg-medium {
+  background-color: var(--scifi-bg-medium) !important;
+}
+
+.bg-light {
+  background-color: var(--scifi-bg-light) !important;
+}
+
+/* Sci-Fi specific elements will be added in future updates */

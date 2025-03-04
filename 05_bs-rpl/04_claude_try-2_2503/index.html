@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciFi-UI Framework Demo</title>
+  
+  <!-- Google Fonts for sci-fi look -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- SciFi-UI CSS -->
+  <link rel="stylesheet" href="css/scifi-ui.css">
+  
+  <style>
+    /* Additional demo-specific styles */
+    .demo-section {
+      margin-bottom: var(--scifi-spacing-xl);
+      padding: var(--scifi-spacing-md);
+      background-color: var(--scifi-bg-medium);
+      border: 1px solid var(--scifi-border-color);
+      border-radius: var(--scifi-border-radius-md);
+      box-shadow: var(--scifi-border-glow);
+    }
+    
+    .demo-box {
+      padding: var(--scifi-spacing-md);
+      background-color: var(--scifi-bg-light);
+      border: 1px solid var(--scifi-border-color);
+      border-radius: var(--scifi-border-radius-md);
+      margin-bottom: var(--scifi-spacing-md);
+    }
+    
+    .color-swatch {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: var(--scifi-spacing-sm);
+      border-radius: var(--scifi-border-radius-md);
+      border: 1px solid var(--scifi-border-color);
+      text-align: center;
+      line-height: 100px;
+      color: white;
+    }
+    
+    /* Sci-fi decorative elements */
+    .scifi-scan-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.03) 50%,
+        rgba(0, 0, 0, 0.03) 50%
+      );
+      background-size: 100% 4px;
+      z-index: 2000;
+      pointer-events: none;
+      opacity: 0.15;
+    }
+    
+    .scifi-pulse {
+      transition: box-shadow var(--scifi-transition-normal), 
+                  border-color var(--scifi-transition-normal);
+    }
+    
+    .pulse-active {
+      box-shadow: 0 0 15px rgba(0, 184, 255, 0.7);
+      border-color: var(--scifi-primary);
+    }
+    
+    .scifi-header {
+      position: relative;
+      padding-left: var(--scifi-spacing-md);
+      margin-bottom: var(--scifi-spacing-lg);
+    }
+    
+    .scifi-header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 80%;
+      background-color: var(--scifi-primary);
+      border-radius: var(--scifi-border-radius-sm);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">SciFi-UI Framework</h1>
+    <p class="text-center mb-5">A modern, sci-fi themed UI framework for web applications</p>
+    
+    <!-- Color Palette Section -->
+    <section class="demo-section">
+      <h2 class="scifi-header">Color Palette</h2>
+      <div class="d-flex flex-wrap justify-content-center">
+        <div class="color-swatch bg-primary">Primary</div>
+        <div class="color-swatch bg-secondary">Secondary</div>
+        <div class="color-swatch bg-success">Success</div>
+        <div class="color-swatch bg-danger">Danger</div>
+        <div class="color-swatch bg-warning">Warning</div>
+        <div class="color-swatch bg-info">Info</div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center mt-3">
+        <div class="color-swatch bg-dark">Dark</div>
+        <div class="color-swatch bg-medium">Medium</div>
+        <div class="color-swatch bg-light">Light</div>
+      </div>
+    </section>
+    
+    <!-- Typography Section -->
+    <section class="demo-section">
+      <h2 class="scifi-header">Typography</h2>
+      <div class="demo-box">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+        <p>This is a paragraph of text. The SciFi-UI framework uses modern typography with sci-fi inspired fonts to create a futuristic look and feel.</p>
+        <p>Here's a <a href="#">link</a> styled with our framework.</p>
+      </div>
+    </section>
+    
+    <!-- Utility Classes Demo -->
+    <section class="demo-section">
+      <h2 class="scifi-header">Utility Classes</h2>
+      
+      <!-- Display utilities -->
+      <h3 class="mb-3">Display</h3>
+      <div class="demo-box">
+        <div class="d-inline bg-primary p-2 text-light">d-inline</div>
+        <div class="d-inline-block bg-secondary p-2 text-light ml-2">d-inline-block</div>
+        <div class="d-block bg-success p-2 text-light mt-2">d-block</div>
+      </div>
+      
+      <!-- Flex utilities -->
+      <h3 class="mb-3 mt-4">Flex</h3>
+      <div class="demo-box">
+        <div class="d-flex justify-content-between mb-2">
+          <div class="bg-primary p-2 text-light">Flex item 1</div>
+          <div class="bg-secondary p-2 text-light">Flex item 2</div>
+          <div class="bg-info p-2 text-light">Flex item 3</div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="bg-success p-2 text-light">Centered flex item</div>
+        </div>
+      </div>
+      
+      <!-- Spacing utilities -->
+      <h3 class="mb-3 mt-4">Spacing</h3>
+      <div class="demo-box">
+        <div class="bg-primary p-2 text-light">No margin</div>
+        <div class="bg-secondary p-2 text-light mt-2">mt-2 (margin-top)</div>
+        <div class="bg-info p-2 text-light mt-3 mb-3">mt-3 mb-3 (margin-top & bottom)</div>
+        <div class="bg-success p-2 text-light mx-4">mx-4 (margin-left & right)</div>
+      </div>
+      
+      <!-- Border utilities -->
+      <h3 class="mb-3 mt-4">Borders</h3>
+      <div class="demo-box">
+        <div class="d-flex flex-wrap">
+          <div class="p-3 m-2 border">Border</div>
+          <div class="p-3 m-2 border border-primary">Border Primary</div>
+          <div class="p-3 m-2 border border-success">Border Success</div>
+          <div class="p-3 m-2 border rounded">Rounded</div>
+          <div class="p-3 m-2 border rounded-lg">Rounded Large</div>
+          <div class="p-3 m-2 border border-glow scifi-pulse">Border Glow</div>
+        </div>
+      </div>
+      
+      <!-- Text utilities -->
+      <h3 class="mb-3 mt-4">Text</h3>
+      <div class="demo-box">
+        <p class="text-primary">Primary text</p>
+        <p class="text-secondary">Secondary text</p>
+        <p class="text-success">Success text</p>
+        <p class="text-danger">Danger text</p>
+        <p class="text-warning">Warning text</p>
+        <p class="text-info">Info text</p>
+        <p class="text-light">Light text</p>
+        <p class="text-dark">Dark text</p>
+        <p class="text-muted">Muted text</p>
+        <p class="text-center">Center aligned text</p>
+        <p class="text-right">Right aligned text</p>
+        <p class="text-left">Left aligned text</p>
+      </div>
+      
+      <!-- Background utilities -->
+      <h3 class="mb-3 mt-4">Backgrounds</h3>
+      <div class="demo-box">
+        <div class="p-2 mb-2 bg-primary text-light">Primary background</div>
+        <div class="p-2 mb-2 bg-secondary text-light">Secondary background</div>
+        <div class="p-2 mb-2 bg-success text-light">Success background</div>
+        <div class="p-2 mb-2 bg-danger text-light">Danger background</div>
+        <div class="p-2 mb-2 bg-warning text-light">Warning background</div>
+        <div class="p-2 mb-2 bg-info text-light">Info background</div>
+        <div class="p-2 mb-2 bg-dark text-light">Dark background</div>
+        <div class="p-2 mb-2 bg-medium text-light">Medium background</div>
+        <div class="p-2 mb-2 bg-light text-dark">Light background</div>
+      </div>
+    </section>
+    
+    <footer class="text-center py-4 mt-5 border-top">
+      <p class="mb-0">SciFi-UI Framework v1.0.0 | Created for modern sci-fi themed web applications</p>
+    </footer>
+  </div>
+  
+  <!-- SciFi-UI JavaScript -->
+  <script src="js/scifi-ui.js"></script>
+</body>
+</html>
