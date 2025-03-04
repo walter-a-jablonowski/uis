@@ -2,7 +2,7 @@ Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own 
 
 Below is the list of elements we add at least. IMPORTANT: Add only one at a time, it may be too much code at once.
 
-First: Look through the list below and start by adding some basic styles if that makes sense. Then add one ui element at a time and update the html sample page.
+First: Look through the list below and start by adding some basic styles first as well as the tool classes. Then ask me for confirmation. Then add one ui element at a time and update the html sample page and ask me for confirmation before each new ui element, so that can review the result first and save it to git.
 
 
 Tools
