@@ -33,15 +33,14 @@ Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own 
   - range control
   - buttons
   - button group
-- alert
+  - dropdown
+  - progress
 - breadcrumb
 - collapse
-- dropdown
 - list group
 - modal
 - tabs
 - popover
-- progress
 - spinner
 - toast
 
