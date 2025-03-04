@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sci-Fi UI Framework</title>
+  <link rel="stylesheet" href="sci-fi-ui.css">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Additional styles for demo only */
+    .demo-section {
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--sf-border-color);
+    }
+    
+    .grid-demo .sf-panel {
+      height: 100%;
+      margin-bottom: 0;
+    }
+    
+    .sf-row + .sf-row {
+      margin-top: 1.5rem;
+    }
+    
+    .demo-block {
+      background-color: rgba(10, 170, 255, 0.1);
+      border: 1px solid var(--sf-border-color);
+      border-radius: var(--sf-border-radius);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="sf-navbar">
+    <div class="sf-navbar-brand">
+      <svg class="sf-navbar-logo" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="20" fill="none" stroke="#0af" stroke-width="2" />
+        <path d="M15 25 L 25 15 L 35 25 L 25 35 Z" fill="none" stroke="#0af" stroke-width="2" />
+        <circle cx="25" cy="25" r="5" fill="#0af" />
+      </svg>
+      <h1 class="sf-navbar-title">Sci-Fi UI</h1>
+    </div>
+    <nav>
+      <ul class="sf-navbar-menu">
+        <li class="sf-navbar-item"><a href="#" class="sf-navbar-link active">Home</a></li>
+        <li class="sf-navbar-item"><a href="#" class="sf-navbar-link">Components</a></li>
+        <li class="sf-navbar-item"><a href="#" class="sf-navbar-link">Documentation</a></li>
+      </ul>
+    </nav>
+    <div class="sf-navbar-right">
+      <button class="sf-toggle-sidebar" id="toggleRightSidebar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="sf-content-wrapper">
+    <!-- Left Sidebar -->
+    <aside class="sf-sidebar">
+      <ul class="sf-sidebar-menu">
+        <li class="sf-sidebar-item"><a href="#overview" class="sf-sidebar-link active">Overview</a></li>
+        <li class="sf-sidebar-item"><a href="#layout" class="sf-sidebar-link">Layout</a></li>
+        <li class="sf-sidebar-item"><a href="#grid" class="sf-sidebar-link">Grid System</a></li>
+        <li class="sf-sidebar-item"><a href="#panels" class="sf-sidebar-link">Panels</a></li>
+      </ul>
+    </aside>
+
+    <!-- Right Sidebar -->
+    <aside class="sf-sidebar sf-sidebar-right" id="rightSidebar">
+      <div class="sf-panel">
+        <div class="sf-panel-header">
+          <h3 class="sf-panel-title">System Status</h3>
+        </div>
+        <div class="sf-panel-body">
+          <div class="sf-status-item">
+            <span class="sf-status-indicator online"></span> Systems Online
+          </div>
+          <div class="sf-status-item">
+            <span class="sf-status-indicator warning"></span> Security Alert
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="sf-main-content" id="mainContent">
+      <div class="sf-container">
+        <div class="demo-section" id="overview">
+          <h2>Sci-Fi UI Framework</h2>
+          <p>A sleek, futuristic UI system for modern web interfaces. This demo page showcases the basic components of the framework.</p>
+        </div>
+
+        <div class="demo-section" id="layout">
+          <h3>Layout Components</h3>
+          <div class="sf-panel">
+            <div class="sf-panel-header">
+              <h4 class="sf-panel-title">Panel Component</h4>
+            </div>
+            <div class="sf-panel-body">
+              <p>Panels are the basic containers for content in the Sci-Fi UI framework. They feature a glowing accent at the top and a glass-like appearance.</p>
+            </div>
+            <div class="sf-panel-footer">
+              Panel Footer
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-section" id="grid">
+          <h3>Grid System</h3>
+          <p>Our responsive 12-column grid system provides flexible layout options that adapt to different screen sizes.</p>
+          
+          <div class="grid-demo">
+            <h5>Basic Grid</h5>
+            <div class="sf-row">
+              <div class="sf-col-12">
+                <div class="demo-block">sf-col-12</div>
+              </div>
+            </div>
+            
+            <div class="sf-row">
+              <div class="sf-col-6">
+                <div class="demo-block">sf-col-6</div>
+              </div>
+              <div class="sf-col-6">
+                <div class="demo-block">sf-col-6</div>
+              </div>
+            </div>
+            
+            <div class="sf-row">
+              <div class="sf-col-4">
+                <div class="demo-block">sf-col-4</div>
+              </div>
+              <div class="sf-col-4">
+                <div class="demo-block">sf-col-4</div>
+              </div>
+              <div class="sf-col-4">
+                <div class="demo-block">sf-col-4</div>
+              </div>
+            </div>
+            
+            <div class="sf-row">
+              <div class="sf-col-3">
+                <div class="demo-block">sf-col-3</div>
+              </div>
+              <div class="sf-col-3">
+                <div class="demo-block">sf-col-3</div>
+              </div>
+              <div class="sf-col-3">
+                <div class="demo-block">sf-col-3</div>
+              </div>
+              <div class="sf-col-3">
+                <div class="demo-block">sf-col-3</div>
+              </div>
+            </div>
+            
+            <h5>Responsive Grid</h5>
+            <div class="sf-row">
+              <div class="sf-col-12 sf-col-md-6 sf-col-lg-4">
+                <div class="demo-block">
+                  <div>12 cols on mobile</div>
+                  <div>6 cols on medium</div>
+                  <div>4 cols on large</div>
+                </div>
+              </div>
+              <div class="sf-col-12 sf-col-md-6 sf-col-lg-4">
+                <div class="demo-block">
+                  <div>12 cols on mobile</div>
+                  <div>6 cols on medium</div>
+                  <div>4 cols on large</div>
+                </div>
+              </div>
+              <div class="sf-col-12 sf-col-md-12 sf-col-lg-4">
+                <div class="demo-block">
+                  <div>12 cols on mobile</div>
+                  <div>12 cols on medium</div>
+                  <div>4 cols on large</div>
+                </div>
+              </div>
+            </div>
+
+            <h5>Dashboard Panel Example</h5>
+            <div class="sf-row">
+              <div class="sf-col-12 sf-col-lg-8">
+                <div class="sf-panel">
+                  <div class="sf-panel-header">
+                    <h4 class="sf-panel-title">System Overview</h4>
+                  </div>
+                  <div class="sf-panel-body">
+                    <p>Main dashboard content goes here. This panel takes up 8 columns on large screens and 12 columns on smaller screens.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-col-12 sf-col-lg-4">
+                <div class="sf-panel">
+                  <div class="sf-panel-header">
+                    <h4 class="sf-panel-title">Quick Stats</h4>
+                  </div>
+                  <div class="sf-panel-body">
+                    <p>Side panel content for statistics and other information.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Status Bar -->
+  <footer class="sf-status-bar">
+    <div>
+      <span class="sf-status-item">
+        <span class="sf-status-indicator online"></span> All Systems Operational
+      </span>
+      <span class="sf-status-item">Database: Connected</span>
+    </div>
+    <div>
+      <span class="sf-status-item">Sci-Fi UI v1.0.0</span>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle right sidebar
+    document.getElementById('toggleRightSidebar').addEventListener('click', function() {
+      const rightSidebar = document.getElementById('rightSidebar');
+      rightSidebar.classList.toggle('active');
+      document.getElementById('mainContent').classList.toggle('with-right-sidebar');
+    });
+  </script>
+</body>
+</html>
