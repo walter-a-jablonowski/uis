@@ -2,7 +2,7 @@
 
 UIs made by AI (simple and full framworks).
 
-**State:** Context window isn't big enough 2503. AI fails when code gets large.
+**State:** New and thinking AIs seem to have problems 2503. But looks like we soon can make whole UI framworks with multiple 1000's of lines.
 
 LICENSE
 ----------------------------------------------------------
