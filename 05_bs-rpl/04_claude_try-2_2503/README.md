@@ -67,13 +67,61 @@ A modern, sci-fi themed UI framework designed as a replacement for Bootstrap. Sc
 ### Background
 - `bg-primary`, `bg-secondary`, `bg-success`, `bg-danger`, `bg-warning`, `bg-info`, `bg-dark`, `bg-medium`, `bg-light`
 
+## Grid System
+
+The SciFi-UI framework includes a powerful and flexible grid system based on a 12-column layout. It supports both flexbox-based rows and columns as well as CSS Grid for more complex layouts.
+
+### Flexbox Grid
+
+The flexbox grid uses a row-based approach similar to Bootstrap:
+
+```html
+<div class="row">
+  <div class="col-6">Half width</div>
+  <div class="col-6">Half width</div>
+</div>
+```
+
+#### Available Column Classes
+
+- Basic columns: `col-1` through `col-12` (spanning 1 to 12 columns)
+- Responsive columns:
+  - Small devices: `col-sm-1` through `col-sm-12` (≥576px)
+  - Medium devices: `col-md-1` through `col-md-12` (≥768px)
+  - Large devices: `col-lg-1` through `col-lg-12` (≥992px)
+  - Extra large devices: `col-xl-1` through `col-xl-12` (≥1200px)
+- Auto-width columns: `col` (takes up equal space)
+- Auto-width sized columns: `col-auto` (takes up only needed space)
+
+#### Column Offsets
+
+You can offset columns using the `offset-*` classes:
+
+```html
+<div class="row">
+  <div class="col-4 offset-4">Centered 4-column width</div>
+</div>
+```
+
+### CSS Grid
+
+For more complex layouts, you can use the CSS Grid implementation:
+
+```html
+<div class="grid-container">
+  <div class="grid-item" style="grid-column: span 4;">Item spanning 4 columns</div>
+  <div class="grid-item" style="grid-column: span 8;">Item spanning 8 columns</div>
+</div>
+```
+
+The grid-container is set up with 12 columns by default and includes sci-fi themed styling for grid items.
+
 ## Future Components
 
 The framework will be expanded to include:
 
 - Navigation bars and status bars
 - Sidebars
-- Grid system
 - Tabs, modals, popovers, and toasts
 - Form controls (inputs, selects, switches, etc.)
 - Buttons and button groups

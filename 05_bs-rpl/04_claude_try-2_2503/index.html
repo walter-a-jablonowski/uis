@@ -87,6 +87,19 @@
       background-color: var(--scifi-primary);
       border-radius: var(--scifi-border-radius-sm);
     }
+    
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: var(--scifi-spacing-md);
+    }
+    
+    .grid-item {
+      background-color: var(--scifi-bg-light);
+      padding: var(--scifi-spacing-md);
+      border: 1px solid var(--scifi-border-color);
+      border-radius: var(--scifi-border-radius-md);
+    }
   </style>
 </head>
 <body>
@@ -203,6 +216,171 @@
         <div class="p-2 mb-2 bg-dark text-light">Dark background</div>
         <div class="p-2 mb-2 bg-medium text-light">Medium background</div>
         <div class="p-2 mb-2 bg-light text-dark">Light background</div>
+      </div>
+    </section>
+    
+    <!-- Grid System Demo -->
+    <section class="demo-section">
+      <h2 class="scifi-header">Grid System</h2>
+      
+      <h3 class="mb-3">Basic Grid (Row-based)</h3>
+      <div class="demo-box">
+        <div class="row">
+          <div class="col-12">
+            <div class="p-3 bg-primary text-light text-center">.col-12</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-6">
+            <div class="p-3 bg-secondary text-light text-center">.col-6</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 bg-secondary text-light text-center">.col-6</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-4">
+            <div class="p-3 bg-info text-light text-center">.col-4</div>
+          </div>
+          <div class="col-4">
+            <div class="p-3 bg-info text-light text-center">.col-4</div>
+          </div>
+          <div class="col-4">
+            <div class="p-3 bg-info text-light text-center">.col-4</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-3">
+            <div class="p-3 bg-success text-light text-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="p-3 bg-success text-light text-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="p-3 bg-success text-light text-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="p-3 bg-success text-light text-center">.col-3</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="p-3 bg-warning text-light text-center">.col-2</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="mb-3 mt-4">Mixed Column Sizes</h3>
+      <div class="demo-box">
+        <div class="row">
+          <div class="col-8">
+            <div class="p-3 bg-primary text-light text-center">.col-8</div>
+          </div>
+          <div class="col-4">
+            <div class="p-3 bg-secondary text-light text-center">.col-4</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-3">
+            <div class="p-3 bg-info text-light text-center">.col-3</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 bg-success text-light text-center">.col-6</div>
+          </div>
+          <div class="col-3">
+            <div class="p-3 bg-info text-light text-center">.col-3</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="mb-3 mt-4">Responsive Grid</h3>
+      <div class="demo-box">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="p-3 bg-primary text-light text-center mb-3">
+              .col-12 .col-md-6 .col-lg-4
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="p-3 bg-primary text-light text-center mb-3">
+              .col-12 .col-md-6 .col-lg-4
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="p-3 bg-primary text-light text-center mb-3">
+              .col-12 .col-md-6 .col-lg-4
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="mb-3 mt-4">Column Offsets</h3>
+      <div class="demo-box">
+        <div class="row">
+          <div class="col-4">
+            <div class="p-3 bg-info text-light text-center">.col-4</div>
+          </div>
+          <div class="col-4 offset-4">
+            <div class="p-3 bg-info text-light text-center">.col-4 .offset-4</div>
+          </div>
+        </div>
+        
+        <div class="row mt-3">
+          <div class="col-3 offset-3">
+            <div class="p-3 bg-success text-light text-center">.col-3 .offset-3</div>
+          </div>
+          <div class="col-3 offset-3">
+            <div class="p-3 bg-success text-light text-center">.col-3 .offset-3</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="mb-3 mt-4">Sci-Fi Grid (CSS Grid)</h3>
+      <div class="grid-container">
+        <div class="grid-item" style="grid-column: span 4;">
+          <h4 class="text-primary">System Status</h4>
+          <p>All systems operational</p>
+        </div>
+        <div class="grid-item" style="grid-column: span 4;">
+          <h4 class="text-primary">Energy Levels</h4>
+          <p>87% capacity</p>
+        </div>
+        <div class="grid-item" style="grid-column: span 4;">
+          <h4 class="text-primary">Navigation</h4>
+          <p>Course plotted</p>
+        </div>
+        <div class="grid-item" style="grid-column: span 6;">
+          <h4 class="text-primary">Communications</h4>
+          <p>Channel open</p>
+        </div>
+        <div class="grid-item" style="grid-column: span 6;">
+          <h4 class="text-primary">Shields</h4>
+          <p>Fully operational</p>
+        </div>
+        <div class="grid-item" style="grid-column: span 12;">
+          <h4 class="text-primary">Mission Log</h4>
+          <p>Exploring sector 7-G</p>
+        </div>
       </div>
     </section>
     
