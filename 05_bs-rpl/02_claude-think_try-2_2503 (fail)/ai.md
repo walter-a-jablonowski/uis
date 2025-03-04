@@ -2,6 +2,8 @@ Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own 
 
 Below is the list of ui elements that we add for information. IMPORTANT: We don't implemment them all now, cause the code may become too large for implementing it all at once. First: Start by adding some basic styles as well as the tool classes and a sample html page. Don't add any layout or page elements yet, but make the basic styles in a way so that we can easily add them later step by step. Then stop for now.
 
+If you encounter errors the full path of this app is: "C:\Users\walte\local\uis\05_bs-rpl\02_claude-think_try-2_2503"
+
 
 Tools
 ----------------------------------------------------------
