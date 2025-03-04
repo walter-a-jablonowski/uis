@@ -1,36 +1,58 @@
-Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own styles (no use of bootstrap) that has similar elements (but isn't limited to). At least add:
+Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own styles (no use of bootstrap) that has similar elements (but isn't limited to).
+
+Below is the list of elements we add at least. IMPORTANT: Add only one add a time, it may be too much code at once.
+
+First: Look through the list below and start by adding some basic styles if that makes sense. Then add one ui element at a time and update the html sample page.
+
+
+Page layout
+----------------------------------------------------------
 
 - nav bar and status bar
   - nav bar: has nice logo and a text on the left
 - sidebars
   - right sidebar: add a button the the header bar right aligned to hide it
 - grid system
-- widgets
-- controls
-  - input
-  - input group
-  - select
-  - switch
-  - range control
-  - buttons
-  - button group
-  - dropdown
-  - progress
-- breadcrumb
-- collapse
-- list group
-- modal
+
+### Overlay
+
 - tabs
+- modal
 - popover
-- spinner
 - toast
 
-Maybe add some cool elements that are missing in this list.
+Page elems
+----------------------------------------------------------
+
+- breadcrumb
+
+- widgets
+
+- list group
+- collapse
+
+### Controls
+
+- input
+- input group
+- select
+- switch
+- range control
+- buttons
+- button group
+- dropdown
+- progress
+
+### Misc
+
+- spinner
+
 
 Tools
+----------------------------------------------------------
 
 - horizontal and vertical alignment
 - spacing
+- borders
 - colors (border, background, text)
 - display
-- borders
