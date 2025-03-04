@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Command Interface</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: #0A1C2B;
+            color: #FFFFFF;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0A1C2B, #1A3A4B);
+            z-index: -1;
+            animation: pulse 10s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><polygon points="20,10 30,20 20,30 10,20" fill="none" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            animation: scan 5s infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-10%); }
+            100% { transform: translateY(10%); }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 80px;
+            height: 100%;
+            background: rgba(10, 28, 43, 0.8);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar:hover {
+            width: 200px;
+        }
+
+        .sidebar-item {
+            color: #00D4FF;
+            text-decoration: none;
+            margin: 20px 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px #00D4FF;
+        }
+
+        .sidebar-item span {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .sidebar:hover .sidebar-item span {
+            display: inline;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .dashboard {
+            width: 90%;
+            height: 90%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid #00D4FF;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(10, 28, 43, 0.8);
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            text-shadow: 0 0 5px #00D4FF;
+        }
+
+        /* Button */
+        .sci-fi-button {
+            padding: 10px 20px;
+            background: none;
+            border: 2px solid #00D4FF;
+            color: #00D4FF;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sci-fi-button:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 15px #00D4FF;
+        }
+
+        /* Holographic Data Panel */
+        .data-panel {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid #00D4FF;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.2), transparent);
+            animation: rotateHolo 15s infinite linear;
+        }
+
+        @keyframes rotateHolo {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .data-panel h2 {
+            color: #00D4FF;
+            text-shadow: 0 0 5px #00D4FF;
+            margin-bottom: 10px;
+        }
+
+        .data-panel p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Status Indicators */
+        .status-indicators {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            background: #00D4FF;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Terminal Input */
+        .terminal {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid #00D4FF;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .terminal input {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #00D4FF;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .terminal input::placeholder {
+            color: rgba(0, 212, 255, 0.5);
+        }
+
+        /* 3D Globe Effect */
+        .globe-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            perspective: 1000px;
+        }
+
+        .globe {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #00D4FF 10%, transparent 70%);
+            border-radius: 50%;
+            animation: spin 20s infinite linear;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes spin {
+            0% { transform: rotateY(0deg) rotateX(20deg); }
+            100% { transform: rotateY(360deg) rotateX(20deg); }
+        }
+
+        .globe::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(0, 212, 255, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00D4FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="sidebar">
+        <a href="#" class="sidebar-item"><span>Missions</span></a>
+        <a href="#" class="sidebar-item"><span>Crew</span></a>
+        <a href="#" class="sidebar-item"><span>Systems</span></a>
+        <a href="#" class="sidebar-item"><span>Logs</span></a>
+    </div>
+    <div class="top-bar">
+        <span>Connection: Stable</span>
+        <span>User: Cmdr. [Your Name]</span>
+    </div>
+    <div class="main-content">
+        <div class="dashboard">
+            <div class="data-panel">
+                <h2>System Diagnostics</h2>
+                <p>Power: 98% | Shields: Active | Comms: Online</p>
+                <div class="status-indicators">
+                    <div class="indicator">
+                        <div class="indicator-dot"></div>
+                        <span>Core Reactor</span>
+                    </div>
+                    <div class="indicator">
+                        <div class="indicator-dot"></div>
+                        <span>Navigation Systems</span>
+                    </div>
+                </div>
+            </div>
+            <div class="terminal">
+                <input type="text" placeholder="> Enter Command">
+            </div>
+            <div class="data-panel">
+                <h2>Mission Status</h2>
+                <p>Objective: Nebula Exploration<br>ETA: 14:32 Galactic Time</p>
+                <button class="sci-fi-button">Launch Mission</button>
+            </div>
+            <div class="globe-container">
+                <div class="globe"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

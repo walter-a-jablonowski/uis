@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Command Interface</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: #0A1C2B;
+            color: #FFFFFF;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0A1C2B, #1A3A4B);
+            z-index: -1;
+            animation: pulse 10s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Hex Grid Overlay */
+        .background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><polygon points="20,10 30,20 20,30 10,20" fill="none" stroke="rgba(0, 212, 255, 0.1)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            animation: scan 5s infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-10%); }
+            100% { transform: translateY(10%); }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 80px;
+            height: 100%;
+            background: rgba(10, 28, 43, 0.8);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar:hover {
+            width: 200px;
+        }
+
+        .sidebar-item {
+            color: #00D4FF;
+            text-decoration: none;
+            margin: 20px 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px #00D4FF;
+        }
+
+        .sidebar-item span {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .sidebar:hover .sidebar-item span {
+            display: inline;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+            padding: 60px 20px 20px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .dashboard {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid #00D4FF;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Holographic Display */
+        .holo-display {
+            position: relative;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .holo-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 45%, rgba(0, 212, 255, 0.1) 50%, transparent 55%);
+            animation: holoScan 3s infinite linear;
+        }
+
+        @keyframes holoScan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Energy Meter */
+        .energy-meter {
+            width: 20px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+            margin: 20px;
+        }
+
+        .energy-level {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80%;
+            background: #00D4FF;
+            border-radius: 10px;
+            animation: energyPulse 2s infinite;
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { opacity: 0.8; height: 80%; }
+            50% { opacity: 1; height: 85%; }
+        }
+
+        /* Terminal Window */
+        .terminal {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            background: rgba(10, 28, 43, 0.9);
+            border: 1px solid #00D4FF;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: monospace;
+            color: #00D4FF;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .terminal-line {
+            margin: 5px 0;
+            animation: typeLine 0.5s steps(40, end);
+        }
+
+        @keyframes typeLine {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Status Panel */
+        .status-panel {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .status-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #00D4FF;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00FF00;
+            box-shadow: 0 0 10px #00FF00;
+            animation: pulse 2s infinite;
+        }
+
+        /* Radar Display */
+        .radar {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .radar-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, #00D4FF, transparent);
+            transform-origin: left;
+            animation: scan 4s infinite linear;
+        }
+
+        @keyframes scan {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background: rgba(0, 212, 255, 0.2);
+            border-left: 4px solid #00D4FF;
+            padding: 15px;
+            border-radius: 5px;
+            animation: slideIn 0.5s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(10, 28, 43, 0.8);
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            text-shadow: 0 0 5px #00D4FF;
+        }
+
+        /* Button */
+        .sci-fi-button {
+            padding: 10px 20px;
+            background: none;
+            border: 2px solid #00D4FF;
+            color: #00D4FF;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sci-fi-button:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 15px #00D4FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="sidebar">
+        <a href="#" class="sidebar-item"><span>Missions</span></a>
+        <a href="#" class="sidebar-item"><span>Crew</span></a>
+        <a href="#" class="sidebar-item"><span>Systems</span></a>
+        <a href="#" class="sidebar-item"><span>Logs</span></a>
+    </div>
+    <div class="top-bar">
+        <span>Connection: Stable</span>
+        <span>User: Cmdr. [Your Name]</span>
+    </div>
+    <div class="main-content">
+        <div class="dashboard">
+            <h1>Welcome to Nebula Command</h1>
+            <p>System online. Awaiting your orders.</p>
+            <button class="sci-fi-button">Launch Mission</button>
+            
+            <div class="holo-display">
+                <h3>Mission Status</h3>
+                <p>Current Objective: Reconnaissance</p>
+                <p>Progress: 67%</p>
+            </div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-line">> System initialization complete</div>
+            <div class="terminal-line">> All subsystems operational</div>
+            <div class="terminal-line">> Awaiting command input...</div>
+        </div>
+
+        <div class="status-panel">
+            <div class="radar">
+                <div class="radar-line"></div>
+            </div>
+
+            <div class="status-item">
+                <span>Shield Integrity</span>
+                <div class="status-indicator"></div>
+            </div>
+            <div class="status-item">
+                <span>Life Support</span>
+                <div class="status-indicator"></div>
+            </div>
+            <div class="status-item">
+                <span>Navigation</span>
+                <div class="status-indicator"></div>
+            </div>
+
+            <div class="energy-meter">
+                <div class="energy-level"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification">
+        New mission parameters received
+    </div>
+</body>
+</html>

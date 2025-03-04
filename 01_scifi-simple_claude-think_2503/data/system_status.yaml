@@ -1,0 +1,10 @@
+core:
+  status: ONLINE
+  version: 2.5.03
+  integrity: 85
+energy:
+  level: 65
+  status: NOMINAL
+shields:
+  integrity: 93
+  status: ACTIVE
