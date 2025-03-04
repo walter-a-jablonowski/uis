@@ -13,3 +13,11 @@ Tools
 - borders
 - colors (border, background, text)
 - display
+
+ --
+
+The styling of the UI isn't isn't exactly a "cool looking Sci Fi dashboard", it looks a but ugly. Please improve that without adding new layout or UI elements.
+
+ --
+
+That was worse. I've undone it, try again.
