@@ -31,6 +31,6 @@ Tools
 
 - horizontal and vertical alignment
 - spacing
-- colors
+- colors (border, background, text)
 - display
 - borders
