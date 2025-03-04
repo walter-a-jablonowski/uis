@@ -1,8 +1,18 @@
 Make a cool looking Sci Fi dashboard UI as a replacement for bootstrap with own styles (no use of bootstrap) that has similar elements (but isn't limited to).
 
-Below is the list of elements we add at least. IMPORTANT: Add only one add a time, it may be too much code at once.
+Below is the list of elements we add at least. IMPORTANT: Add only one at a time, it may be too much code at once.
 
 First: Look through the list below and start by adding some basic styles if that makes sense. Then add one ui element at a time and update the html sample page.
+
+
+Tools
+----------------------------------------------------------
+
+- horizontal and vertical alignment
+- spacing
+- borders
+- colors (border, background, text)
+- display
 
 
 Page layout
@@ -46,13 +56,3 @@ Page elems
 ### Misc
 
 - spinner
-
-
-Tools
-----------------------------------------------------------
-
-- horizontal and vertical alignment
-- spacing
-- borders
-- colors (border, background, text)
-- display
