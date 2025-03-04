@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciFi UI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sci-fi-container">
+    <!-- Hexagonal Command Module -->
+    <div class="ui-element hexagon-module" id="commandModule">
+      <div class="inner-content">
+        <h3>Command Module</h3>
+        <div class="data-stream">System: <span class="status">Online</span></div>
+        <div class="control-panel">
+          <button class="sf-button">Initialize</button>
+          <button class="sf-button">Override</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Circular Status Display -->
+    <div class="ui-element circle-display" id="statusDisplay">
+      <div class="inner-content">
+        <h3>System Status</h3>
+        <div class="circle-progress">
+          <div class="progress-value">87%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Angled Data Console -->
+    <div class="ui-element angled-console" id="dataConsole">
+      <div class="inner-content">
+        <h3>Data Console</h3>
+        <div class="console-output">
+          <p>> Initializing systems...</p>
+          <p>> Security protocols active</p>
+          <p>> Quantum stabilizers online</p>
+          <p>> Neural interface calibrating...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Triangular Navigation Panel -->
+    <div class="ui-element triangular-nav" id="navPanel">
+      <div class="inner-content">
+        <h3>Navigation</h3>
+        <div class="nav-options">
+          <div class="nav-item">Bridge</div>
+          <div class="nav-item">Engine Room</div>
+          <div class="nav-item">Quarters</div>
+          <div class="nav-item">Hangar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curved Communication Panel -->
+    <div class="ui-element curved-panel" id="commPanel">
+      <div class="inner-content">
+        <h3>Communications</h3>
+        <div class="comm-interface">
+          <input type="text" class="sf-input" placeholder="Enter message...">
+          <button class="sf-button">Transmit</button>
+        </div>
+        <div class="channel-selector">
+          <div class="channel active">Main Deck</div>
+          <div class="channel">Engineering</div>
+          <div class="channel">External</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Star-shaped Alert System -->
+    <div class="ui-element star-alert" id="alertSystem">
+      <div class="inner-content">
+        <h3>Alert System</h3>
+        <div class="alert-status">All Systems Nominal</div>
+        <div class="alert-indicators">
+          <div class="indicator green"></div>
+          <div class="indicator green"></div>
+          <div class="indicator yellow"></div>
+          <div class="indicator green"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
