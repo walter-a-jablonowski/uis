@@ -2,7 +2,7 @@
 
 UIs made by AI (simple and full framworks).
 
-**State:** New and thinking AIs seem to have problems 2503. But looks like we soon can make whole UI framworks with multiple 1000's of lines.
+**State:** New and thinking AIs seem to have problems 2503. My vivbe is in a short while we can make whole UI framworks with multiple 1000's of lines.
 
 LICENSE
 ----------------------------------------------------------
